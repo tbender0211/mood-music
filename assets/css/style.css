@@ -4,7 +4,7 @@ h1 {
     font-weight: 900;
     float: right;
     position: absolute;
-    top: 30%;
+    top: 0%;
     right: 0;
 }
 h2 {
@@ -13,13 +13,16 @@ h2 {
     font-weight: 900;
     color: white;
     position: absolute;
-    top: 30%;
-
-
+    top: 0%;
 }
 
+html, body {
+    min-height: 100%;
+}
+
+
 body{
-    background-image: url("../images/Wiretap.jpg");
+    background-image: url("../images/King\ Yna.jpg");
 }
 
 #music {
@@ -46,11 +49,12 @@ nav {
 
 .material-icons {
     font-size: 40px;
-    color: black;
+    color: white;
+    opacity: .7;
 }
 
 .music {
-    background: linear-gradient(to right, #e94057 0%,  #f27121 100%);
+    background: linear-gradient(to bottom, #1a2a6c 20%,  #b21f1f 50%, #fdbb2d 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -62,7 +66,6 @@ nav {
 
 #upload {
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 2px;
@@ -70,7 +73,6 @@ nav {
 
 #favorites {
     color:white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 2px;
@@ -78,7 +80,6 @@ nav {
 
 #about {
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 2px;
@@ -86,8 +87,40 @@ nav {
 
 #home {
     color: white;
-    font-family: 'Open Sans', sans-serif;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 2px;
+}
+
+#slogan1{
+    color: black;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    letter-spacing: 10px;
+    right: 0;
+    font-weight: 700;
+}
+
+#slogan2 {
+    color: white;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+nav {
+    height: 1%;
+}
+
+#login {
+    float: right;
+    margin-right: 5px;
+    color: white;
+    margin-top: 5px;
+    margin-right: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    letter-spacing: 10px;
+    opacity: .7;
 }
