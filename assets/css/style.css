@@ -54,3 +54,32 @@ nav {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+.sidenav {
+    background-color: black;
+    opacity: .5;
+}
+
+#upload {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+#favorites {
+    color:white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+#about {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
+#home {
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
