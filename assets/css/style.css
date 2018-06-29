@@ -1,0 +1,56 @@
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 120px;
+    font-weight: 900;
+    float: right;
+    position: absolute;
+    top: 30%;
+    right: 0;
+}
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 120px;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    top: 30%;
+
+
+}
+
+body{
+    background-image: url("../images/Wiretap.jpg");
+}
+
+#music {
+    background-color: black;
+    height: 100%;
+    width: 50%;
+    position: relative;
+
+}
+
+#mood {
+    height: 100%;
+    width: 50%;
+    position: relative;
+}
+
+nav {
+    background-color: transparent;
+}
+
+#nav-mobile {
+    opacity: .7;
+}
+
+.material-icons {
+    font-size: 40px;
+    color: black;
+}
+
+.music {
+    background: linear-gradient(to right, #e94057 0%,  #f27121 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
