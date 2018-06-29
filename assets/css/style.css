@@ -138,3 +138,7 @@ p {
 #upload-space {
     font-size: 25px;
 }
+
+#myCanvas {
+    padding-left:50%;
+}
