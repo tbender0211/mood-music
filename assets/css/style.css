@@ -21,7 +21,7 @@ html, body {
 }
 
 
-body{
+#index{
     background-image: url("../images/King\ Yna.jpg");
 }
 
@@ -64,28 +64,7 @@ nav {
     opacity: .5;
 }
 
-#upload {
-    color: white;
-    font-size: 25px;
-    font-family: 'Roboto Condensed', sans-serif;
-    letter-spacing: 2px;
-}
-
-#favorites {
-    color:white;
-    font-size: 25px;
-    font-family: 'Roboto Condensed', sans-serif;
-    letter-spacing: 2px;
-}
-
-#about {
-    color: white;
-    font-size: 25px;
-    font-family: 'Roboto Condensed', sans-serif;
-    letter-spacing: 2px;
-}
-
-#home {
+#upload, #favorites, #about, #home {
     color: white;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -118,9 +97,44 @@ nav {
     float: right;
     margin-right: 5px;
     color: white;
-    margin-top: 5px;
     margin-right: 10px;
     font-family: "Roboto Condensed", sans-serif;
     letter-spacing: 10px;
     opacity: .7;
+}
+
+#upload-body, #favorites-body, #about-body {
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+#upload-text {
+    font-size: 90px;
+    padding-left: 25%;
+}
+
+.container {
+    width: 50%;
+    float: right;
+    text-align: center;
+}
+
+#results {
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 62px;
+    font-size: 25px;
+}
+
+#results-text {
+    font-size: 75px;
+    padding-left: 13%;
+}
+
+p {
+    letter-spacing: 5px;
+}
+
+#upload-space {
+    font-size: 25px;
 }
