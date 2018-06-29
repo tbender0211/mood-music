@@ -63,23 +63,31 @@ nav {
 #upload {
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
 }
 
 #favorites {
     color:white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
 }
 
 #about {
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
 }
 
 #home {
     color: white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
 }
