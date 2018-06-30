@@ -118,6 +118,7 @@ nav {
     width: 50%;
     float: right;
     text-align: center;
+    position: relative;
 }
 
 #results {
@@ -142,3 +143,45 @@ p {
 #myCanvas {
     padding-left:50%;
 }
+
+.btn-small {
+    color: green;
+    border: solid 2px green;
+    padding: 3px;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 980px) {
+
+    .container {
+       width: 50%;
+   }
+   #myCanvas {
+       width: 500px;
+       height: 500px;
+   }
+}
+   
+@media screen and (max-width: 890px) {
+    
+    .container {
+        width: 100%;
+        float: none;
+    }
+    #myCanvas {
+        width: 300px;
+        height: 300px;
+        padding-left: 0;
+    }
+}
+   
+   @media screen and (max-width: 640px) {
+    .container {
+        width: 100%;
+        float: none;
+    }
+    #myCanvas {
+        width: 100px;
+        height: 100px;
+    }
+   }
