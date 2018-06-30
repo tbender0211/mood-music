@@ -1,0 +1,189 @@
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 200px;
+    font-weight: 900;
+    float: right;
+    position: absolute;
+    top: 0%;
+    right: 0;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 200px;
+    font-weight: 900;
+    color: white;
+    position: absolute;
+    top: 0%;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+
+#index{
+    background-image: url("../images/King\ Yna.jpg");
+}
+
+#music {
+    background-color: black;
+    height: 100%;
+    width: 50%;
+    position: relative;
+
+}
+
+#mood {
+    height: 100%;
+    width: 50%;
+    position: relative;
+}
+
+nav {
+    background-color: transparent;
+}
+
+#nav-mobile {
+    opacity: .7;
+}
+
+.material-icons {
+    font-size: 40px;
+    color: white;
+    opacity: .7;
+}
+
+.music {
+    background: linear-gradient(to bottom, #1a2a6c 20%,  #b21f1f 50%, #fdbb2d 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.sidenav {
+    background-color: black;
+    opacity: .5;
+}
+
+#upload, #favorites, #about, #home {
+    color: white;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+}
+
+#slogan1{
+    color: black;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    letter-spacing: 10px;
+    right: 0;
+    font-weight: 700;
+}
+
+#slogan2 {
+    color: white;
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    letter-spacing: 10px;
+}
+
+nav {
+    height: 1%;
+}
+
+#login {
+    float: right;
+    margin-right: 5px;
+    color: white;
+    margin-right: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    letter-spacing: 10px;
+    opacity: .7;
+}
+
+#upload-body, #favorites-body, #about-body {
+    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+}
+
+#upload-text {
+    font-size: 90px;
+    padding-left: 25%;
+}
+
+.container {
+    width: 50%;
+    float: right;
+    text-align: center;
+    position: relative;
+}
+
+#results {
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 62px;
+    font-size: 25px;
+}
+
+#results-text {
+    font-size: 75px;
+    padding-left: 13%;
+}
+
+p {
+    letter-spacing: 5px;
+}
+
+#upload-space {
+    font-size: 25px;
+}
+
+#myCanvas {
+    padding-left:50%;
+}
+
+.btn-small {
+    color: green;
+    border: solid 2px green;
+    padding: 3px;
+    font-size: 15px;
+}
+
+/*In progress media queries for responsiveness*/
+@media screen and (max-width: 980px) {
+
+    .container {
+       width: 50%;
+   }
+   #myCanvas {
+       width: 500px;
+       height: 500px;
+   }
+}
+   
+@media screen and (max-width: 890px) {
+    
+    .container {
+        width: 100%;
+        float: none;
+    }
+    #myCanvas {
+        width: 300px;
+        height: 300px;
+        padding-left: 0;
+    }
+}
+   
+   @media screen and (max-width: 640px) {
+    .container {
+        width: 100%;
+        float: none;
+    }
+    #myCanvas {
+        width: 100px;
+        height: 100px;
+    }
+   }

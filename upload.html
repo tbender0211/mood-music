@@ -1,0 +1,108 @@
+<!DOCTYPE>
+<html>
+    <html>
+        <head>    
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+           
+            <head>
+                <!--Import Google Icon Font-->
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                <!-- Compiled and minified CSS -->
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+            
+                <!--Let browser know website is optimized for mobile-->
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <link href="assets/css/style.css" rel="stylesheet">
+
+            </head>
+        </head>
+    <body id="upload-body">
+
+        <ul id="slide-out" class="sidenav">
+
+            <li><a href="index.html" id="home">Home</a></li>
+            <li><a href="upload.html" id="upload">Upload</a></li>
+            <li><a href="favorites.html" id="favorites">Favorites</a></li>
+            <li><a href="about.html" id="about">About</a></li>
+
+        </ul>
+
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        
+        <script src="jquery-3.3.1.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+        
+        <!--This contains code for the results window (right side of page)-->
+        <div class="container" id="results">
+           
+            <div class="row">
+                
+                <div class="col md12" id="results-text">
+                    MOOD + MUSIC
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col md12">
+                    <p>This is where we tell you what you're feeling, and let you hear it!</p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <!--Gif and Spotify playlist will be displayed here, code pending-->
+            </div>
+
+        </div>
+
+        <!--This contains code for the image upload container, coded second because of the float-->
+        <div class="container" id="upload-space">
+
+            <div class="row">
+
+                <div class="col md12" id="upload-text">
+                    UPLOAD
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col md12">
+                    <p>Choose a photo or take one below then click <a class="waves-effect waves-light btn-small">ANALYZE</a> to create a playlist.</p>
+                </div>
+
+            </div>
+
+            <!--This row contains the canvas for uploading the image.-->
+            <div class="row">
+
+                <div class="col md12">
+
+                    <p>
+                        
+                        <video onclick="snapshot(this);" width=500 height=500 id="video" controls autoplay></video>
+                        <br>
+                        <canvas  id="myCanvas" width="500" height="500"></canvas>
+                    
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+        
+
+
+        <script src="assets/javascript/javascript.js"></script>
+
+    </body>
+
+</html>
