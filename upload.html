@@ -3,10 +3,10 @@
     <html>
         <head>    
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
-           
-            <head>
+            <script src="assets/javascript/rapidapi.min.js"></script>
+                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
                 <!--Import Google Icon Font-->
                 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                 <!-- Compiled and minified CSS -->
@@ -31,9 +31,7 @@
 
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         
-        <script src="jquery-3.3.1.min.js"></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+        
         
         <!--This contains code for the results window (right side of page)-->
         <div class="container" id="results">
@@ -54,8 +52,11 @@
 
             </div>
 
-            <div class="row">
-                <!--Gif and Spotify playlist will be displayed here, code pending-->
+            <div class="row"> <!--Gif and Spotify playlist will be displayed here, code pending-->
+                <div id="gif">
+
+                </div>
+               
             </div>
 
         </div>
@@ -74,7 +75,7 @@
             <div class="row">
 
                 <div class="col md12">
-                    <p>Choose a photo or take one below then click <a class="waves-effect waves-light btn-small">ANALYZE</a> to create a playlist.</p>
+                    <p>Choose a photo or take one below then click <a class="waves-effect waves-light btn-small" onclick="processImage()">ANALYZE</a> to create a playlist.</p>
                 </div>
 
             </div>
@@ -83,22 +84,79 @@
             <div class="row">
 
                 <div class="col md12">
-
-                    <p>
+                        <p>
+                        Image to analyze: <input style="color:white;" type="text" name="inputImage" id="inputImage"
+                        placeholder="Your image Url" />
                         
-                        <video onclick="snapshot(this);" width=500 height=500 id="video" controls autoplay></video>
-                        <br>
-                        <canvas  id="myCanvas" width="500" height="500"></canvas>
-                    
-                    </p>
-
+                        <br><br>
+                        
+                        <div id="imageDiv" style="width:400px; display:table-cell;">
+                                Source image:<br><br>
+                        
+                                <img id="sourceImage" width="400" />
+                            </div>
+                        </p>
                 </div>
 
             </div>
-
+            
 
         </div>
+        <script type="text/javascript">
+    
+    function processImage() {
+         var sourceImgUrl = $("#inputImage").val().trim();
+         //Display the imagle
+         $("#sourceImage").attr("src", sourceImgUrl)
+
+    var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
+    
+
+        rapid.call('KairosAPI', 'createEmotionalAnalysis', { 
+        'appId': '856d4e0d',
+        'source': sourceImgUrl,
+        'appKey': '436faeac678d376364b610aa4c2822e7'
+
+        }).on('success', function (payload) {
+            M.toast({html: "Success!"});
+            console.log(payload);
+            console.log(payload.frames["0"].people["0"].emotions);
+
+            let emotions = payload.frames["0"].people["0"].emotions;
+            let strongestEmotion = "";
+            let emotionScore = 0;
+                for (var key in emotions) {
+                if (emotions[key] > emotionScore) {
+                    emotionScore = emotions[key];
+                    strongestEmotion = key;
+                    };
+                console.log(strongestEmotion);
+                //put if statements for synonym array or thesaurus api call here. Set strongestEmotion to synonym to pass into giphy and spotify
         
+        rapid.call('Giphy', 'searchGifs', { 
+                        'query': strongestEmotion, 
+                        'apiKey': 'dc6zaTOxFJmzC'
+                    }).on('success', function (payload) {
+                        console.log(payload);
+                        console.log(payload.data);
+
+                          /*  var gifSrc = payload.data[Math.floor(Math.random()*10+1)].image_original_url;
+                            var moodGif = $("<img>");
+                            moodGif.attr("src", gifSrc);
+                            moodGif.attr("alt", "cat image");
+                            $("#gif").prepend(moodGif); */
+                                        
+                    }).on('error', function (payload) {
+                        console.log(error)
+                    });
+
+        }}).on('error', function (payload) {
+            M.toast({html: "I'm sorry,  but that picture can't be analyzed. Please try another photo."});
+            console.log(error);
+        }
+            )
+    };
+        </script>
 
 
         <script src="assets/javascript/javascript.js"></script>
