@@ -140,8 +140,9 @@ nav {
     padding-left: 13%;
 }
 
-p {
+p, #imageDiv {
     letter-spacing: 5px;
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 #upload-space {
