@@ -4,19 +4,17 @@
         <head>    
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
             <script src="assets/javascript/rapidapi.min.js"></script>
-                 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
                 <!--Import Google Icon Font-->
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
                 <!-- Compiled and minified CSS -->
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
             
                 <!--Let browser know website is optimized for mobile-->
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <link href="assets/css/style.css" rel="stylesheet">
-
-            </head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="assets/css/style.css" rel="stylesheet">
         </head>
     <body id="upload-body">
 
@@ -110,7 +108,7 @@
          $("#sourceImage").attr("src", sourceImgUrl)
 
     var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
-   
+    
 
         rapid.call('KairosAPI', 'createEmotionalAnalysis', { 
         'appId': '856d4e0d',
