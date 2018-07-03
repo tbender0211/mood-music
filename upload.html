@@ -110,7 +110,7 @@
          $("#sourceImage").attr("src", sourceImgUrl)
 
     var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
-    
+   
 
         rapid.call('KairosAPI', 'createEmotionalAnalysis', { 
         'appId': '856d4e0d',
@@ -129,28 +129,29 @@
                 if (emotions[key] > emotionScore) {
                     emotionScore = emotions[key];
                     strongestEmotion = key;
-                    };
+                    }};
                 console.log(strongestEmotion);
                 //put if statements for synonym array or thesaurus api call here. Set strongestEmotion to synonym to pass into giphy and spotify
         
         rapid.call('Giphy', 'searchGifs', { 
                         'query': strongestEmotion, 
-                        'apiKey': 'dc6zaTOxFJmzC'
+                        'apiKey': 'dc6zaTOxFJmzC',
+                        'limit': '1',
                     }).on('success', function (payload) {
                         console.log(payload);
                         console.log(payload.data);
 
-                          /*  var gifSrc = payload.data[Math.floor(Math.random()*10+1)].image_original_url;
+                            var gifSrc = payload.data["0"].images.original.url;
                             var moodGif = $("<img>");
                             moodGif.attr("src", gifSrc);
-                            moodGif.attr("alt", "cat image");
-                            $("#gif").prepend(moodGif); */
+                            moodGif.attr("alt", "Mood Gif");
+                            $("#gif").prepend(moodGif); 
                                         
                     }).on('error', function (payload) {
                         console.log(error)
                     });
 
-        }}).on('error', function (payload) {
+        }).on('error', function (payload) {
             M.toast({html: "I'm sorry,  but that picture can't be analyzed. Please try another photo."});
             console.log(error);
         }
