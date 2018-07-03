@@ -94,6 +94,13 @@ nav {
     height: 1%;
 }
 
+#profilepic {
+    width:30px;
+    height:30px;
+    float:right;
+    z-index: 15;
+}
+
 #login {
     float: right;
     margin-right: 5px;
@@ -150,6 +157,81 @@ p {
     border: solid 2px green;
     padding: 3px;
     font-size: 15px;
+}
+
+#modal1 {
+    width:500px;
+    height:700px;
+    z-index:10;
+}
+
+#modal2 {
+    width:500px;
+    height:700px;
+    z-index:10;
+}
+
+#modal3 {
+    width:500px;
+    height:400px;
+    z-index:10;
+}
+
+#modal4 {
+    display:none;
+    width:500px;
+    height:400px;
+    z-index:11;
+}
+
+#logsymb2 {
+    position:relative;
+    left:80%;
+    width:auto;
+    display:inline-block;
+    height:40px;
+    align-content:center;
+    border: 2px solid black;
+    z-index:5;
+}
+
+.modal .modal-content{
+    padding-bottom:0px;
+    height:auto;
+}
+
+#form{
+    margin-bottom:0;
+}
+
+#close{
+    float:right;
+    width:40px;
+    height:40px;
+
+}
+
+#Submit {
+    margin-right:10px;
+}
+
+#Logout {
+    color: white;
+    font-size: 25px;
+    font-family: 'Roboto Condensed', sans-serif;
+    letter-spacing: 2px;
+    cursor:pointer;
+    display:none;
+}
+
+#CreateAccount{
+    float:left;
+}
+
+.modal-footer {
+    
+    position:relative;
+    bottom: 20px;
 }
 
 /*In progress media queries for responsiveness*/

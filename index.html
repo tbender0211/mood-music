@@ -15,6 +15,7 @@
                 <!--Let browser know website is optimized for mobile-->
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <link href="assets/css/style.css" rel="stylesheet">
+                <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
             </head>
         </head>
@@ -28,15 +29,16 @@
             <li><a href="upload.html" id="upload">Upload</a></li>
             <li><a href="favorites.html" id="favorites">Favorites</a></li>
             <li><a href="about.html" id="about">About</a></li>
+            <li><a id="logout">Log out</a></li>
 
         </ul>
         
         <!--Login button-->
-        <a href="#" id="login">LOGIN  <i class="small material-icons">trending_flat</i></a>
+        <div id="logsymb">
+            <a href="#" id="login">LOGIN  <i class="small material-icons">trending_flat</i></a>
+        </div>
 
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        
-        <script src="jquery-3.3.1.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>   
 
@@ -49,7 +51,7 @@
                 <p id="slogan1">LETTING YOU HEAR</p>
 
             </div>
-
+            
             <div class="col md6" id="music">
 
                 <h2 class="music"><p>MUSIC</p></h2>
@@ -57,8 +59,83 @@
 
             </div>
 
-        </div>
+            <div id="modal1" class="modal">
+                    <div class="modal-content">
+                        <button class="btn-floating btn-large waves-effect waves-light red close" id="close">X</button>
+                        <h3>Log in to your Account!</h3>
+                        <div id="form" class="row">
+                            <form class="col s12">
+                              <div class="row">
+                                <div class="input-field col s12">
+                                  <input id="email" type="email" class="validate">
+                                  <label for="email">Email</label>
+                                </div>
+                              </div>
+                              <div id="signup"class="row">
+                                <div class="input-field col s12">
+                                  <input id="password" type="password" class="validate">
+                                  <label for="password">Password</label>
+                                </div>
+                              </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a id="CreateAccount" href="#!" class="modal-close waves-effect waves-green btn-flat">Sign Up</a>
+                        <a id="log" href="#!" class="modal-close waves-effect waves-green btn-flat">Log in</a>
+                    </div>
+                </div>
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                       <button class="btn-floating btn-large waves-effect waves-light red close" id="close">X</button>
+                        <h3>Create your Account!</h3>
+                        <div id="form" class="row">
+                            <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="NewEmail" type="email" class="validate">
+                                            <label for="email">Email</label>
+                                        </div>
+                                    </div>
+                                    <div id="signup"class="row">
+                                        <div class="input-field col s12">
+                                            <input id="passwordNew" type="password" class="validate">
+                                            <label for="password">Password</label>
+                                        </div>
+                                    </div>
+                                    <a id="AccountCreate" href="#!" class="modal-close waves-effect waves-green btn-flat">Continue</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="modal3" class="modal">
+                    <div class="modal-content">
+                            <button class="btn-floating btn-large waves-effect waves-light red close" id="close">X</button>
+                        <h3>Finish creating your account</h3>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input placeholder="John" id="first_name" type="text" class="validate">
+                                    <label for="first_name">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input placeholder="Smith" id="last_name" type="text" class="validate">
+                                    <label for="last_name">Last Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="NewUsername" type="text" class="validate">
+                                    <label for="username">Username</label>
+                                </div>
+                            </div>
+                            <a id="Final" href="#!" class="modal-close waves-effect waves-green btn-flat">Final</a>
+                        </form>
+                    </div>
+                </div>
 
+        </div>
+        
              
         <script src="assets/javascript/javascript.js"></script>
 
