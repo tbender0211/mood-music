@@ -2,25 +2,25 @@
 <html>
     <html>
         <head>    
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
-            <script src="assets/javascript/rapidapi.min.js"></script>
-             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-                <!--Import Google Icon Font-->
+        <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                <!-- Compiled and minified CSS -->
+        <!-- GoogleFonts-->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
+        <!-- Materialize CSS -->
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
-            
-                <!--Let browser know website is optimized for mobile-->
-
-                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                <link href="assets/css/style.css" rel="stylesheet">
-
-                <!----------------Firebase-------------------------->
-                <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+        <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="assets/css/style.css" rel="stylesheet">
+        
             </head>
-    <body id="upload-body">
+        <body onload="init();" id="upload-body"> <!--Must be loaded before js files!-->
+            <!--Firebase-->
+            <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+            <!-- import Jquery and Jquery UI before materialize-->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+            <!--Materialize -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 
         <ul id="slide-out" class="sidenav">
 
@@ -55,7 +55,7 @@
 
             </div>
 
-            <div class="row"> <!--Gif and Spotify playlist will be displayed here, code pending-->
+            <div class="row"> <!--Gif and Spotify playlist will be displayed here-->
                 <div id="gif">
 
                 </div>
@@ -78,7 +78,7 @@
             <div class="row">
 
                 <div class="col md12">
-                    <p>Choose a photo or take one below then click <a class="waves-effect waves-light btn-small" onclick="processImage()">ANALYZE</a> to create a playlist.</p>
+                    <p>Choose a photo or take one below then click <a class="waves-effect waves-light btn-small" onclick="processImage();">ANALYZE</a> to create a playlist.</p>
                 </div>
 
             </div>
@@ -87,34 +87,136 @@
             <div class="row">
 
                 <div class="col md12">
-                        <p>
-                        Image to analyze: <input style="color:white;" type="text" name="inputImage" id="inputImage"
-                        placeholder="Your image Url" />
-                        
-                        <br><br>
-                        
-                        <div id="imageDiv" style="width:400px; display:table-cell;">
-                                Source image:<br><br>
-                        
-                                <img id="sourceImage" width="400" />
-                            </div>
-                        </p>
-                </div>
 
-            </div>
+                        
+                <div id="webcamUpload">
+                    <p>
+                    <button id="start" onclick="startWebcam();">Start WebCam</button>
+                    <button onclick="snapshot();">Take Snapshot</button> 
+                    <video id="video" onclick="snapshot(this);" width="480" height="340" id="video" controls autoplay></video>
+                    <canvas id="canvas" style="display:none;" width="480" height="340"></canvas>  
+                    <div id="selfie">
+                        <!--Selfie goes here-->
+                        <img id="yourImg" style="margin:0 auto;" src="" height= "300" alt="Image Preview">
+                    </div>
+                    </p> 
+                            
+                    <div id="imgUpload">
+                    <div>Upload Image</div>
+                     <input type="file" accept="image" onchange="previewFile()">
+                     <br>
+                     
+                    </div>      
+    
+                        </p>
+                </div> <!--uploadSpace-->
+
+            </div> <!--row-->
             
 
         </div>
         <script type="text/javascript">
-    
-    function processImage() {
-         var sourceImgUrl = $("#inputImage").val().trim();
-         //Display the imagle
-         $("#sourceImage").attr("src", sourceImgUrl)
 
+//--------------------
+// GET USER MEDIA CODE
+//--------------------
+navigator.getUserMedia = ( navigator.getUserMedia ||
+navigator.webkitGetUserMedia ||
+navigator.mozGetUserMedia ||
+navigator.msGetUserMedia);
+
+var video;
+var webcamStream;
+var sourceImgUrl;
+
+function startWebcam() {
+    $("#selfie").hide();
+    $("#video").show();
+	if (navigator.getUserMedia) {
+		navigator.getUserMedia ({
+			video: true,
+			audio: false
+		},
+		// successCallback
+		function(localMediaStream) {
+			video = document.querySelector('video');
+            try {
+                video.srcObject = localMediaStream;
+            } catch (error) {
+                video.src = URL.createObjectURL(localMediaStream);
+            }
+			webcamStream = localMediaStream;
+		},
+		// errorCallback
+		function(err) {
+			console.log("The following error occured: " + err);
+		});
+	} else {
+		console.log("getUserMedia not supported");
+	}  
+}
+
+//---------------------
+// TAKE A SNAPSHOT CODE
+//---------------------
+
+var canvas, ctx;
+
+function init() {
+	// Get the canvas and obtain a context for
+	// drawing in it
+	canvas = document.getElementById("canvas");
+	ctx = canvas.getContext('2d');
+    $("#yourImg").hide();
+}
+
+function snapshot() {
+	// Draws current image from the video element into the canvas
+	ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+    var selfie = new Image();
+    selfie.id = "selfieImg"
+    selfie.src = canvas.toDataURL();
+    $("#selfie").prepend(selfie);
+    video.pause();
+    if (webcamStream!= null) {
+    webcamStream.getTracks().map(function (val) {
+    val.stop();
+    });
+    }
+    $("#video").hide();
+    $("#selfie").show();
+    console.log(sourceImgUrl);
+    }
+ 
+//---------------------------
+// IMAGE UPLOAD & PREVIEW CODE
+//---------------------------
+    function previewFile() {
+  var preview = document.querySelector("img");
+  var file    = document.querySelector("input[type=file]").files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+ $("#yourImg").show()
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+    sourceImgUrl = file;
+    console.log(sourceImgUrl);
+  }
+}
+
+
+//----------------------------------
+// ANALZYE IMAGE AND DISPLAY RESULTS
+//----------------------------------
+
+function processImage() {
+console.log(sourceImgUrl);
     var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
     
-
         rapid.call('KairosAPI', 'createEmotionalAnalysis', { 
         'appId': '856d4e0d',
         'source': sourceImgUrl,
@@ -132,7 +234,9 @@
                 if (emotions[key] > emotionScore) {
                     emotionScore = emotions[key];
                     strongestEmotion = key;
-                    }};
+                    }
+                };
+                
                 console.log(strongestEmotion);
                 //put if statements for synonym array or thesaurus api call here. Set strongestEmotion to synonym to pass into giphy and spotify
         
@@ -141,9 +245,8 @@
                         'apiKey': 'dc6zaTOxFJmzC',
                         'limit': '1',
                     }).on('success', function (payload) {
-                        console.log(payload);
-                        console.log(payload.data);
-
+                    // console.log(payload);
+                    //console.log(payload.data); to test payload
                             var gifSrc = payload.data["0"].images.original.url;
                             var moodGif = $("<img>");
                             moodGif.attr("src", gifSrc);
@@ -151,20 +254,24 @@
                             $("#gif").prepend(moodGif); 
                                         
                     }).on('error', function (payload) {
-                        console.log(error)
+                        M.toast({html: "I'm sorry, there was an error fetching your GIF. That sucks huh? Maybe try again?"});
+                        console.log(payload);
                     });
 
         }).on('error', function (payload) {
             M.toast({html: "I'm sorry,  but that picture can't be analyzed. Please try another photo."});
-            console.log(error);
+            console.log(payload);
         }
             )
     };
         </script>
 
 
-        <script src="assets/javascript/javascript.js"></script>
-
+        
+<!-- Javascript File-->
+<script src="assets/javascript/javascript.js"></script>
+<!--Rapid API-->
+<script src="assets/javascript/rapidapi.min.js"></script>
     </body>
 
 </html>
