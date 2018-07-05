@@ -2,38 +2,70 @@
 <html>
     <html>
         <head>    
-                <link href="https://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet">
-                <script src="assets/javascript/rapidapi.min.js"></script>
-                     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-                    <!--Import Google Icon Font-->
-                    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-                    <!-- Compiled and minified CSS -->
-                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
-                
-                    <!--Let browser know website is optimized for mobile-->
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-                    <link href="assets/css/style.css" rel="stylesheet">
-    
-            </head>
-        </head>
-    <body id="about-body">
+            <!--Import Google Icon Font-->
+            <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Roboto+Condensed" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <!-- Jquery before Materialize -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+            
+            <!--Let browser know website is optimized for mobile-->
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="assets/css/style.css" rel="stylesheet">
+            <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 
+           
+        </head>
+
+    <body id="about-body">
+        
+        <!--Sidenav code-->
         <ul id="slide-out" class="sidenav">
 
             <li><a href="index.html" id="home">Home</a></li>
             <li><a href="upload.html" id="upload">Upload</a></li>
             <li><a href="favorites.html" id="favorites">Favorites</a></li>
-            <li><a href="about.html" id="about">About</a></li>    
+            <li><a href="about.html" id="about">About</a></li>
+            <li><a id="logout">Log out</a></li>
 
         </ul>
+        
+        <!--Login button-->
+        <div id="logsymb">
+            <a href="#" id="login">LOGIN  <i class="small material-icons">trending_flat</i></a>
+        </div>
 
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        
-        <script src="jquery-3.3.1.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>   
+
+        <!--Title page display-->
+        <div class="row">
+            <div id="about-gradient" class="col s6">
+
+              
+
+
+            </div>
+            <div class="col s6">
+                <p><h4 class="About">About</h4></p>
+                <p>
+                    Mood music was created to help you figure out what to listen to, based on what you're feeling.
+                    <!-- Maybe some bio info?-->
+
+
+                </p>
+
+                
+                
+               
+            </div>
+
+
+        </div>
+        
+             
         <script src="assets/javascript/javascript.js"></script>
 
     </body>
