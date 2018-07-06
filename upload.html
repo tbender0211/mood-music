@@ -31,11 +31,11 @@
             <li><a id="logout">Log out</a></li>
 
         </ul>
+    
+            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>  
 
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        
-        
-        
         <!--This contains code for the results window (right side of page)-->
         <div class="container" id="results">
            
@@ -59,9 +59,11 @@
                 <div id="gif" class="col md6">
                     <img id="mood-gif" alt="Mood Gif" src="">
                 </div>
+
                 <div id="spotify-playlist" class="col md6">
 
                 </div>
+
                
             </div>
             <div class="row">
@@ -83,11 +85,15 @@
 
             <div class="row">
 
-                <div class="col md12">
-                    <p>Choose a photo or take one below then click <a class="waves-effect waves-light btn-small" onclick="processImage();">ANALYZE</a> to create a playlist.</p>
+                <div id="upload-slogan" class="col md12">
+                    <p> 
+                        Upload a photo below. If you'd like, use the camera, and then save the image to use as your upload.
+                        When you're ready to get yourself a playlist click <a class="waves-effect waves-light btn-small" onclick="processImage();">ANALYZE</a>.
+                    </p>
                 </div>
 
             </div>
+
 
             <div class="row">
                 <div class="col md12" id="genre-select">
@@ -110,32 +116,43 @@
 
                 <div class="col md12">
 
-                        
-                <div id="webcamUpload">
-                    <p>
-                    <button id="start" onclick="startWebcam();">Start WebCam</button>
-                    <button onclick="snapshot();">Take Snapshot</button> 
-                    <video id="video" onclick="snapshot(this);" width="480" height="340" id="video" controls autoplay></video>
-                    <canvas id="canvas" style="display:none;" width="480" height="340"></canvas>  
-                    <div id="selfie">
-                        <!--Selfie goes here-->
-                        <img id="yourImg" style="margin:0 auto;" src="" height= "300" alt="Image Preview">
+                    <div id="webcamUpload">
+                            <a id="startBtn" class="waves-effect waves-light btn-large" onclick="startWebcam();">Start Webcam</a>
+                            <a id="snapBtn" class="waves-effect waves-light btn-large" onclick="snapshot();">Take Snapshot</a>
                     </div>
-                    </p> 
-                            
+
                     <div id="imgUpload">
-                    <div>Upload Image</div>
-                     <input type="file" accept="image" onchange="previewFile()">
-                     <br>
-                     
-                    </div>      
+                        <form action="#">
+                                <div class="file-field input-field">
+                                  <div class="btn">
+                                    <span>File</span>
+                                    <input type="file" type="file" accept="image" onchange="previewFile();">
+                                  </div>
+                                  <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                  </div>
+                                </div>
+                        </form>
+                    </div>
+
+                    <div id="Media">
+                        <video id="video" onclick="snapshot(this);" controls autoplay></video>
+                        <canvas id="canvas"></canvas> 
+                    </div>
+
+                    <div id="selfie"> 
+                    </div>
+
+                    <div id="preview">
+                        <img id="previewImg" src="" alt="Image Preview">  
+                    </div> 
     
-                        </p>
-                </div> <!--uploadSpace-->
+                </div> <!-- /container upload Space -->
 
-            </div> <!--row-->
 
-        </div>
+            </div> <!--/ row -->
+
+        </div> <!-- /container results-->
         <script type="text/javascript">
 
 //--------------------
@@ -151,8 +168,10 @@ var webcamStream;
 var sourceImgUrl;
 
 function startWebcam() {
-    $("#selfie").hide();
-    $("#video").show();
+    $("#preview").slideUp();
+    $("#fileUp").val(null);
+    $("#selfie").slideUp(); //hide selfie div to display video in its place
+    $("#video").slideDown();
 	if (navigator.getUserMedia) {
 		navigator.getUserMedia ({
 			video: true,
@@ -188,45 +207,53 @@ function init() {
 	// drawing in it
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext('2d');
-    $("#yourImg").hide();
+     $("#selfie").slideUp(5); 
+     $("#preview").slideUp(5);
+     $("#gif").fadeOut(5);
 }
 
-function snapshot() {
-	// Draws current image from the video element into the canvas
+function snapshot() {     
+    $("#selfieImg").remove(); //remove any previously displayed selfies
 	ctx.drawImage(video, 0,0, canvas.width, canvas.height);
     var selfie = new Image();
-    selfie.id = "selfieImg"
-    selfie.src = canvas.toDataURL();
-    $("#selfie").prepend(selfie);
-    video.pause();
+    selfie.id = "selfieImg";
+    selfie.src = canvas.toDataURL();  
+    $("#selfie").html(selfie); 
+    stopVideo();
+    $("#video").slideUp(); 
+    $("#selfie").slideDown(); 
+}
+ 
+
+function stopVideo() {
     if (webcamStream!= null) {
     webcamStream.getTracks().map(function (val) {
-    val.stop();
-    });
+        val.stop(); }
+        );
     }
-    $("#video").hide();
-    $("#selfie").show();
-    console.log(sourceImgUrl);
-    }
- 
+}
+
 //---------------------------
 // IMAGE UPLOAD & PREVIEW CODE
 //---------------------------
     function previewFile() {
-  var preview = document.querySelector("img");
+     
+  var preview = document.querySelector("#previewImg");
   var file    = document.querySelector("input[type=file]").files[0];
   var reader  = new FileReader();
 
   reader.addEventListener("load", function () {
+    stopVideo();
+    $("#video").slideUp();
+    $("#selfie").slideUp();
     preview.src = reader.result;
- $("#yourImg").show()
-  }, false);
-
-  if (file) {
-    reader.readAsDataURL(file);
-    sourceImgUrl = file;
-    console.log(sourceImgUrl);
-  }
+    }, false);
+    $("#preview").slideDown()
+    if (file) {
+        reader.readAsDataURL(file);
+        sourceImgUrl = file;
+        console.log(sourceImgUrl);
+    }
 }
 
 
@@ -235,12 +262,15 @@ function snapshot() {
 //----------------------------------
 
 function processImage() {
+//Only  allow if user is logged in
     let user = firebase.auth().currentUser;
     if(user){
 
         console.log(sourceImgUrl);
-        var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
-    
+    var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
+    var randomNum = Math.floor(Math.random()*20);
+    var gifNum = randomNum.toString();
+
         rapid.call('KairosAPI', 'createEmotionalAnalysis', { 
         'appId': '856d4e0d',
         'source': sourceImgUrl,
@@ -258,6 +288,8 @@ function processImage() {
                 if (emotions[key] > emotionScore) {
                     emotionScore = emotions[key];
                     strongestEmotion = key;
+                    } else if (emotions[key] == emotionScore) {
+                        strongestEmotion = "chill";
                     }
                 };
                 
@@ -267,15 +299,15 @@ function processImage() {
         rapid.call('Giphy', 'searchGifs', { 
                         'query': strongestEmotion, 
                         'apiKey': 'dc6zaTOxFJmzC',
-                        'limit': '1',
+                        'limit': '20',
                     }).on('success', function (payload) {
                     // console.log(payload);
                     //console.log(payload.data); to test payload
-                            var gifSrc = payload.data["0"].images.original.url;
-                            $("#mood-gif").attr("src", gifSrc);
-                            $("#gif").fadeIn(800);; 
-
-        
+                           var gifSrc = payload.data[gifNum].images.original.url;
+                           $("#mood-gif").attr("src", gifSrc);
+                           $("#gif").fadeIn(800);
+                            console.log(payload.data);  
+          
         var genreChoice = $("#genre option:selected").text();
         console.log($("#genre option:selected").text());
 
@@ -712,7 +744,18 @@ function processImage() {
         }else{
             
         }
-};
+                                        
+                    }).on('error', function (payload) {
+                        M.toast({html: "I'm sorry, there was an error fetching your GIF. That sucks huh? Maybe try again"});
+                        console.log(payload);
+                    });
+
+        }).on('error', function (payload) {
+            M.toast({html: "I'm sorry,  but that picture can't be analyzed. Please try another photo."});
+            console.log(payload);
+        }
+            )
+}
         </script>
 
 

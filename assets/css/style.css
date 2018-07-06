@@ -62,7 +62,7 @@ nav {
 
 .sidenav {
     background-color: black;
-    opacity: .5;
+    opacity: .8;
 }
 
 #upload, #favorites, #about, #home {
@@ -111,7 +111,7 @@ nav {
     opacity: .7;
 }
 
-#upload-body, #favorites-body, #about-body {
+ #favorites-body, #about-body {
     background-color: black;
     font-family: 'Open Sans', sans-serif;
     color: white;
@@ -121,9 +121,76 @@ nav {
     font-size:32px;
 }
 
+#upload-body {
+    color:#fff;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(-45deg, #1CFF1B,#FF5128, #0575E6, #f5af19, #ee0979, #00F260); 
+    background: -webkit-linear-gradient(-45deg, #1CFF1B,#FF5128, #0575E6, #f5af19, #ee0979, #00F260);  
+    background-size: 500% 500%;
+    -webkit-animation: Gradient 15s ease infinite;
+    -moz-animation: Gradient 15s ease infinite;
+    animation: Gradient 15s ease infinite; 
+}
+    @-webkit-keyframes Gradient {
+        0% {
+          background-position: 0% 50%; }
+        50% {
+          background-position: 100% 50%; }
+        100% {
+          background-position: 0% 50%; } }
+
+
 #upload-text {
-    font-size: 90px;
-    padding-left: 25%;
+    font-size: 60px;
+    padding-left: 33%;
+}
+
+#upload-slogan {
+    font-size: 16px;
+}
+
+#video {
+    margin: 0 auto;
+    width:480; 
+    height: 340;
+}
+
+#canvas {
+    display:none;
+    width: 480; 
+    height: 340;
+}
+
+#previewImg {
+    margin:0 auto; 
+    height: 340;
+}
+
+#startBtn {
+margin-right: 10px;
+margin-bottom: 5px;
+}
+
+#snapBtn {
+margin-left:10px;
+margin-bottom: 5px;
+}
+
+#selfieImg {
+    width: 480; 
+    height: 340;
+    margin: 0 auto;
+}
+
+#imgUpload {
+    margin-left: 200px;
+    margin-bottom: 5px;
+}
+
+#mood-Gif {
+    width: 200px;
+    height: 200px;
 }
 
 
@@ -134,19 +201,29 @@ nav {
 
 #favorites-gradient {
 background: #40E0D0;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
+background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
 -webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 height:100%;
 }
 
+@-webkit-keyframes Gradient {
+    0% {
+      background-position: 0% 50%; }
+    50% {
+      background-position: 100% 50%; }
+    100% {
+      background-position: 0% 50%; } }
+
 #about-gradient {
     background: #40E0D0;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
+    background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
+    background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0); 
     height:100%;
-    }
+    -webkit-clip-path: polygon(0 47%, 0% 100%, 100% 11%);
+    clip-path: polygon(0 47%, 0% 100%, 100% 11%);
+}
 #about h2 {
     color:white;
     
@@ -161,12 +238,12 @@ height:100%;
 
 #results {
     font-family: 'Open Sans', sans-serif;
-    padding-top: 62px;
-    font-size: 25px;
+    padding-top: 48px;
+    font-size: 24px;
 }
 
 #results-text {
-    font-size: 75px;
+    font-size: 60px;
     padding-left: 13%;
 }
 
