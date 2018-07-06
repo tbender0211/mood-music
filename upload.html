@@ -57,7 +57,7 @@
 
             <div class="row"> <!--Gif and Spotify playlist will be displayed here-->
                 <div id="gif" class="col md6">
-
+                    <img id="mood-gif" alt="Mood Gif" src="">
                 </div>
                 <div id="spotify-playlist" class="col md6">
 
@@ -272,11 +272,8 @@ function processImage() {
                     // console.log(payload);
                     //console.log(payload.data); to test payload
                             var gifSrc = payload.data["0"].images.original.url;
-                            var moodGif = $("<img>");
-                            moodGif.attr("id", "gifdisplay");
-                            moodGif.attr("src", gifSrc);
-                            moodGif.attr("alt", "Mood Gif");
-                            $("#gif").prepend(moodGif); 
+                            $("#mood-gif").attr("src", gifSrc);
+                            $("#gif").fadeIn(800);; 
 
         
         var genreChoice = $("#genre option:selected").text();
@@ -703,7 +700,7 @@ function processImage() {
             
                 $("#favorite").on("click", function(){
                     let uid = firebase.auth().currentUser.uid;
-                    let jif = $("#gifdisplay").attr("src");
+                    let jif = $("#mood-gif").attr("src");
                     let playlist = $("#iframe").attr("src");
                     firebase.database().ref("users/" + uid + "/favorites/").push({
                         gif:jif,
@@ -713,7 +710,7 @@ function processImage() {
                 });
             
         }else{
-            M.toast({html: " You must be logged in first!"});
+            
         }
 };
         </script>

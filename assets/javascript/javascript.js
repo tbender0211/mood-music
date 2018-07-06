@@ -157,9 +157,6 @@ $(".close").on("click", function(event){
 
 $('.sidenav').sidenav();
 $('select').formSelect();
-//var elem = document.querySelector('select');
-//var instance = M.FormSelect.getInstance(elem);
-//instance.getSelectedValues();
 
 //-------------------------Favorites Page code ------------------------//
 
