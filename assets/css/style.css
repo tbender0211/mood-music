@@ -126,6 +126,8 @@ nav {
     padding-left: 25%;
 }
 
+
+
 #favorites-table {
     font-size: 32px;
 }
@@ -263,6 +265,20 @@ p, #imageDiv {
     bottom: 20px;
 }
 
+.dropdown-content li > a, .dropdown-content li > span {
+    color: white !important;
+    background-color: black !important;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#genre {
+    background-color: white;
+    width: 150%;
+}
+
+#genre-select {
+    padding-left: 35%;
+}
 /*In progress media queries for responsiveness*/
 @media screen and (max-width: 980px) {
 
