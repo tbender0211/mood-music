@@ -193,6 +193,8 @@ margin-bottom: 5px;
     height: 200px;
 }
 
+
+
 #favorites-table {
     font-size: 32px;
 }
@@ -245,8 +247,9 @@ height:100%;
     padding-left: 13%;
 }
 
-p {
+p, #imageDiv {
     letter-spacing: 5px;
+    font-family: "Roboto Condensed", sans-serif;
 }
 
 #upload-space {
@@ -339,6 +342,20 @@ p {
     bottom: 20px;
 }
 
+.dropdown-content li > a, .dropdown-content li > span {
+    color: white !important;
+    background-color: black !important;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+#genre {
+    background-color: white;
+    width: 150%;
+}
+
+#genre-select {
+    padding-left: 35%;
+}
 /*In progress media queries for responsiveness*/
 @media screen and (max-width: 980px) {
 
