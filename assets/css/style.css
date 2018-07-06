@@ -356,6 +356,11 @@ p, #imageDiv {
 #genre-select {
     padding-left: 35%;
 }
+
+#favoritegif{
+    width:100px;
+    height:85px;
+}
 /*In progress media queries for responsiveness*/
 @media screen and (max-width: 980px) {
 
