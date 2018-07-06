@@ -13,7 +13,7 @@
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link href="assets/css/style.css" rel="stylesheet">
-            <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+            <script src="assets/javascript/javascript.js"></script>
 
            
         </head>
@@ -33,7 +33,6 @@
         
         <!--Login button-->
         <div id="logsymb">
-            <a href="#" id="login">LOGIN  <i class="small material-icons">trending_flat</i></a>
         </div>
 
         <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -57,23 +56,19 @@
                           <tr>
                             <th>Gif</th>
                             <th>Playlist</th>
-                            <th><i class="material-icons">delete</i></th> <!--remove playlist-->
                           </tr>
                         </thead>
-                        <tbody>
-                            <!--Gif & Playlist generate here-->
+                        <tbody id="playlistsrow">
                         </tbody>
                 </table>
-
 
             </div>
 
 
         </div>
-        
-             
-        <script src="assets/javascript/javascript.js"></script>
-
+        <!---------------------------------------Firebase Call-------------------------------------->
+        <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    
     </body>
 
 </html>
