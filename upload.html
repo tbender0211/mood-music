@@ -56,9 +56,9 @@
             </div>
 
             <div class="row"> <!--Gif and Spotify playlist will be displayed here-->
-                <div id="gif">
-
-                </div>
+                    <div id="gif">
+                        <img id="mood-gif" alt="Mood Gif" src="">
+                    </div>
                
             </div>
 
@@ -182,8 +182,9 @@ function init() {
 	// drawing in it
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext('2d');
-     $("#selfie").slideUp(10); 
-     $("#preview").slideUp(10);
+     $("#selfie").slideUp(5); 
+     $("#preview").slideUp(5);
+     $("#gif").fadeOut(5);
 }
 
 function snapshot() {     
@@ -236,8 +237,9 @@ function stopVideo() {
 //----------------------------------
 
 function processImage() {
-console.log(sourceImgUrl);
     var rapid = new RapidAPI("default-application_5b2ee88be4b08122a9a23ae4", "efb47cc8-30f0-4748-8471-3360632e9d86");
+    var randomNum = Math.floor(Math.random()*20);
+    var gifNum = randomNum.toString();
 
         rapid.call('KairosAPI', 'createEmotionalAnalysis', { 
         'appId': '856d4e0d',
@@ -267,15 +269,14 @@ console.log(sourceImgUrl);
         rapid.call('Giphy', 'searchGifs', { 
                         'query': strongestEmotion, 
                         'apiKey': 'dc6zaTOxFJmzC',
-                        'limit': '1',
+                        'limit': '20',
                     }).on('success', function (payload) {
                     // console.log(payload);
                     //console.log(payload.data); to test payload
-                            var gifSrc = payload.data["0"].images.original.url;
-                            var moodGif = $("<img>");
-                                moodGif.attr("src", gifSrc);
-                                moodGif.attr("alt", "Mood Gif");
-                            $("#gif").prepend(moodGif);  //fuck with gif here
+                            var gifSrc = payload.data[gifNum].images.original.url;
+                           $("#mood-gif").attr("src", gifSrc);
+                           $("#gif").fadeIn(800);
+                            console.log(payload.data);
                                         
                     }).on('error', function (payload) {
                         M.toast({html: "I'm sorry, there was an error fetching your GIF. That sucks huh? Maybe try again"});
