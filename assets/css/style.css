@@ -260,7 +260,7 @@ p, #imageDiv {
     padding-left:50%;
 }
 
-.btn-small {
+#analyze {
     color: green;
     border: solid 2px green;
     padding: 3px;
