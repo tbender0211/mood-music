@@ -183,9 +183,9 @@ $(document).ready(function(){
         btn.append(i);
         btn.click(remove);
 
-        var gif = $('<img>').attr('src', snapshot.val().gif)
-        $(this).addClass("favoritegif");
-        var music = "<iframe frameborder='0' allowtransparency='true' allow='encrypted-media' width='400' height='300' src='"
+        var gif = $('<img>').attr('src', snapshot.val().gif).attr('id', 'favoritegif');
+
+        var music = "<iframe frameborder='0' class='playlist' allowtransparency='true' allow='encrypted-media' width='400' height='300' src='"
         + snapshot.val().playlist
         + "'>";
         

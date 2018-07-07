@@ -53,7 +53,17 @@ nav {
     color: white;
     opacity: .7;
 }
+.trash-btn {
+    background-color:black;
+   border-radius: 8px;
+    display:inline-block;
+    margin-right:5px;
+    margin-left: 2px;
+}
 
+.playlist {
+    margin-bottom: 5px;
+}
 .music {
     background: linear-gradient(45deg, #FF0080, #FF8C00, #40E0D0);
 	-webkit-background-clip: text;
@@ -371,9 +381,10 @@ input {
     font-size: 16px;
 }
 
-.favoritegif{
+#favoritegif{
     width:100px;
     height:85px;
+    margin-right: 5px;
 }
 /*In progress media queries for responsiveness*/
 @media screen and (max-width: 980px) {
