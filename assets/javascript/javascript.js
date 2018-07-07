@@ -164,11 +164,36 @@ $(document).ready(function(){
  if(user){
      let uid = firebase.auth().currentUser.uid;
      let ref = firebase.database().ref("users/" + uid + "/favorites/");
-     ref.limitToLast(5).on("child_added", function(snapshot){
-         $("#playlistsrow").prepend("<tr><td id='gif'><img id='favoritegif' src='" + snapshot.val().gif + "'></td><td id='playlist'><iframe frameborder='0' allowtransparency='true' allow='encrypted-media' width='400' height = '150' src='" + snapshot.val().playlist + "'></td>");
-     })
+     ref.limitToLast(5).on("child_added", function(snapshot, prevChildKey){
+
+        //generate remove button
+        var btn = $("<button>");
+        btn.addClass("trash-btn");
+        btn.attr("data-key", snapshot.key);
+        var i = $("<i>");
+        i.addClass("material-icons");
+        i.text("delete")   
+        btn.append(i);
+        btn.click(remove);
+
+        var gif = $('<img>').attr('src', snapshot.val().gif)
+        $(this).attr('id', 'favGif');
+        var music = "<iframe frameborder='0' allowtransparency='true' allow='encrypted-media' width='500' height='200' src='"
+        + snapshot.val().playlist
+        + "'>";
+        
+         var print = $('<tr>').append(
+            $('<td>').append(gif),
+            $('<td>').html(music),
+            $('<td>').append(btn)).appendTo('#playlistsrow');
+     });
      } 
- })
+ });
+
+ function remove() {
+    database.ref().child($(this).attr('data-key')).remove();
+    this.closest("tr").remove();
+  };
 
  
  
