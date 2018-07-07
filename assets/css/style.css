@@ -199,6 +199,11 @@ margin-bottom: 5px;
     font-size: 32px;
 }
 
+#favGif {
+    width:200px;
+    height:200px;
+}
+
 #favorites-gradient {
 background: #40E0D0;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
