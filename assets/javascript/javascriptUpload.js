@@ -56,6 +56,7 @@ $( document ).on('change','#imageFile' , previewFile );
         // drawing in it
         canvas = document.getElementById("canvas");
         ctx = canvas.getContext('2d');
+        $("#video").slideUp(5);
          $("#selfie").slideUp(5); 
          $("#preview").slideUp(5);
          $("#gif").slideUp(5);
@@ -104,8 +105,6 @@ $( document ).on('change','#imageFile' , previewFile );
             console.log(sourceImgUrl);
         }
     }
-    
-    
     //----------------------------------
     // ANALZYE IMAGE AND DISPLAY RESULTS
     //----------------------------------
@@ -159,6 +158,9 @@ $( document ).on('change','#imageFile' , previewFile );
               
             var genreChoice = $("#genre option:selected").text();
             console.log($("#genre option:selected").text());
+            if (genreChoice !== "rock" | "hip-hop" | "electronic" | "pop" | "indie") {
+                M.toast({html: "Please pick a genre to get a playlist."});
+            }
     
             //This section contains code for the genre select option
     
@@ -579,10 +581,10 @@ $( document ).on('change','#imageFile' , previewFile );
                     console.log(payload);
                     })    
             }else{
-               M.toast({html: "I'm sorry, please login/create an account to generate a playlist. The login button is located at the top of the page."});
+               M.toast({html: "I'm sorry, please login/create an account to generate a playlist."});
             }}
     
-             $("#favorite").on("click", function(){
+             $("#favoriteBtn").on("click", function(){
                         let uid = firebase.auth().currentUser.uid;
                         let jif = $("#mood-gif").attr("src");
                         let playlist = $("#iframe").attr("src");
@@ -590,6 +592,6 @@ $( document ).on('change','#imageFile' , previewFile );
                             gif:jif,
                             playlist: playlist,
                             dateAdded: firebase.database.ServerValue.TIMESTAMP
-                       })
+                       });  M.toast({html: "Playlist added to Favorites. Listen again on Favorite's page."});
                    })
-                });
+    });

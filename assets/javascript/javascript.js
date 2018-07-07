@@ -19,7 +19,9 @@ $(document).ready(function(){
  // Realtime listener
      firebase.auth().onAuthStateChanged(function(user) {
          if(user) {
+            M.toast({html: "You are now logged in."});
              $("#logout").show();
+             $("#log_in").hide()
              console.log("poop");
              displayuser();
          } else{
@@ -50,6 +52,7 @@ $(document).ready(function(){
      promise.catch(function(error) {
          var errorCode = error.code;
          var errorMessage = error.message;
+         M.toast({html: "Error: " + errorMessage + "."});
          console.log("Error: " + errorMessage);
      })
  
@@ -82,6 +85,7 @@ $(document).ready(function(){
          promise.catch(function(error){
              var errorCode = error.code;
              var errorMessage = error.message;
+             M.toast({html: "Error: " + errorMessage + "."});
              console.log("Error: " + errorMessage);
          });
  
@@ -112,10 +116,13 @@ $(document).ready(function(){
          event.preventDefault();
          var login = $("<a href='#' id='login'> LOGIN  <i class='small material-icons'>trending_flat</i></a>")
          firebase.auth().signOut().then(function() {
- 
+            M.toast({html: "You are now logged out."});
+            $("#log_in").show();
          }).catch(function(error) {
+
              var errorCode = error.code;
              var errorMessage = error.message;
+             M.toast({html: "Error: " + errorMessage + "."});
              console.log("Error: " + errorMessage)
          })
          setTimeout(function(){
@@ -177,8 +184,8 @@ $(document).ready(function(){
         btn.click(remove);
 
         var gif = $('<img>').attr('src', snapshot.val().gif)
-        $(this).attr('id', 'favGif');
-        var music = "<iframe frameborder='0' allowtransparency='true' allow='encrypted-media' width='500' height='200' src='"
+        $(this).addClass("favoritegif");
+        var music = "<iframe frameborder='0' allowtransparency='true' allow='encrypted-media' width='400' height='300' src='"
         + snapshot.val().playlist
         + "'>";
         
@@ -191,7 +198,9 @@ $(document).ready(function(){
  });
 
  function remove() {
-    database.ref().child($(this).attr('data-key')).remove();
+    let uid = firebase.auth().currentUser.uid;
+    let ref = firebase.database().ref("users/" + uid + "/favorites/");
+    ref.child($(this).attr('data-key')).remove();
     this.closest("tr").remove();
   };
 

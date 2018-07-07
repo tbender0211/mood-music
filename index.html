@@ -1,7 +1,8 @@
 <!DOCTYPE>
 <html>
     <html>
-        <head>    
+        <head>  
+            <title>Mood Music</title>  
             <!--Import Google Icon Font-->
             <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|Roboto+Condensed" rel="stylesheet">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -9,7 +10,6 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
-            
             <!--Let browser know website is optimized for mobile-->
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link href="assets/css/style.css" rel="stylesheet">
@@ -19,44 +19,6 @@
         </head>
 
     <body id="index">
-        
-        <!--Sidenav code-->
-        <ul id="slide-out" class="sidenav">
-
-            <li><a href="index.html" id="home">Home</a></li>
-            <li><a href="upload.html" id="upload">Upload</a></li>
-            <li><a href="favorites.html" id="favorites">Favorites</a></li>
-            <li><a href="about.html" id="about">About</a></li>
-            <li><a id="logout">Log out</a></li>
-
-        </ul>
-        
-        <!--Login button-->
-        <div id="logsymb">
-            <a href="#" id="login">LOGIN  <i class="small material-icons">trending_flat</i></a>
-        </div>
-
-        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>   
-
-        <!--Title page display-->
-        <div class="row">
-
-            <div class="col md6" id="mood">
-
-                <h1><p>MOOD</p></h1>
-                <p id="slogan1">LETTING YOU HEAR</p>
-
-            </div>
-            
-            <div class="col md6" id="music">
-
-                <h2 class="music"><p>MUSIC</p></h2>
-                <p id="slogan2">WHAT YOU'RE FEELING</p>
-
-            </div>
-
             <div id="modal1" class="modal">
                     <div class="modal-content">
                         <button class="btn-floating btn-large waves-effect waves-light red close" id="close">X</button>
@@ -131,6 +93,42 @@
                         </form>
                     </div>
                 </div> <!-- Modal -->
+        <!--Sidenav code-->
+        <ul id="slide-out" class="sidenav">
+
+            
+            <li><a href="index.html" id="home">Home</a></li>
+            <li><a href="upload.html" id="upload">Upload</a></li>
+            <li><a href="favorites.html" id="favorites">Favorites</a></li>
+            <li><a href="about.html" id="about">About</a></li>
+            <li><a id="logout">Log out</a></li>
+            <li id="logsymb"><a href="#" id="log_in">Log In</a></li>
+
+        </ul>
+
+        </div>
+
+        <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>   
+
+        <!--Title page display-->
+        <div class="row">
+
+            <div class="col md6" id="mood">
+
+                <h1><p>MOOD</p></h1>
+                <p id="slogan1">LETTING YOU HEAR</p>
+
+            </div>
+            
+            <div class="col md6" id="music">
+
+                <h2 class="music"><p>MUSIC</p></h2>
+                <p id="slogan2">WHAT YOU'RE FEELING</p>
+
+            </div>
+
 
         </div>
         
