@@ -591,5 +591,8 @@ $( document ).on('change','#imageFile' , previewFile );
                             playlist: playlist,
                             dateAdded: firebase.database.ServerValue.TIMESTAMP
                        })
-                   })
-                });
+            })
+    $("#surpriseBtn").on("click", function(){
+        
+    })
+});

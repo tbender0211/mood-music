@@ -349,13 +349,12 @@ p, #imageDiv {
 }
 
 #genre {
-    background-color: white;
-    width: 150%;
+    background-color:#2BBBAD;
+    width: 80%;
+    float: left;
 }
 
-#genre-select {
-    padding-left: 35%;
-}
+
 
 #favoritegif{
     width:100px;
