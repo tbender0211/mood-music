@@ -85,7 +85,7 @@ $(document).ready(function(){
          promise.catch(function(error){
              var errorCode = error.code;
              var errorMessage = error.message;
-             M.toast({html: "Error: " + errorMessage + "."});
+             //M.toast({html: "Error: " + errorMessage + "."});
              console.log("Error: " + errorMessage);
          });
  
