@@ -2,10 +2,11 @@ h1 {
     font-family: 'Open Sans', sans-serif;
     font-size: 200px;
     font-weight: 900;
-    float: right;
-    position: absolute;
     top: 0%;
     right: 0;
+}
+#index h1 {
+    color:white;
 }
 
 h2 {
@@ -13,7 +14,6 @@ h2 {
     font-size: 200px;
     font-weight: 900;
     color: white;
-    position: absolute;
     top: 0%;
 }
 
@@ -21,24 +21,71 @@ html, body {
     min-height: 100%;
 }
 
+#index-container {
+    height:100%;
+}
 
 #index{
     background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
 }
-
-#music {
-    background-color: black;
-    height: 100%;
-    width: 50%;
-    position: relative;
-
+#bg-left {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+    z-index: -1;
 }
 
-#mood {
-    height: 100%;
-    width: 50%;
-    position: relative;
+#bg-right {
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    z-index: -1;
 }
+
+#mood-P {
+    margin:0 auto;
+    padding-top:100px;
+    padding-left:5px;
+    font-size:17vw;
+    color:#000;
+    top:40%;
+}
+
+ #music-P {
+    margin: 0 auto;
+    padding-top:100px;
+    padding-right:20px;
+    font-size: 17vw;
+    background: -webkit-linear-gradient( #40e0d0, #ff8c00, #ff0080);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ } 
+#slogan-left {
+    margin: 0 auto;
+    padding-bottom:150px;
+    padding-left:5px;
+    position:absolute;
+    top: 60%;
+    left:60%;
+    font-size: 1.7vw;
+    color:#000'
+}
+#slogan-right {
+    margin:0 auto;
+    padding-bottom:150px;
+    padding-right: 5px;
+    position:absolute;
+    top: 60%;
+    right:53%;
+    font-size: 1.7vw;
+    color: #fff;
+}
+
 
 nav {
     background-color: black;;
@@ -53,19 +100,11 @@ nav {
     color: white;
     opacity: .7;
 }
-.trash-btn {
-    background-color:black;
-   border-radius: 8px;
-    display:inline-block;
-    margin-right:5px;
-    margin-left: 2px;
-}
 
-.playlist {
-    margin-bottom: 5px;
-}
+
+
 .music {
-    background: linear-gradient(45deg, #FF0080, #FF8C00, #40E0D0);
+    background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -75,29 +114,12 @@ nav {
     opacity: .8;
 }
 
+
 #upload, #favorites, #about, #home, #log_in {
     color: white;
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
     letter-spacing: 2px;
-}
-
-#slogan1{
-    color: black;
-    position: absolute;
-    top: 70%;
-    font-size: 20px;
-    letter-spacing: 10px;
-    right: 0;
-    font-weight: 700;
-}
-
-#slogan2 {
-    color: white;
-    position: absolute;
-    top: 70%;
-    font-size: 20px;
-    letter-spacing: 10px;
 }
 
 nav {
@@ -127,9 +149,7 @@ nav {
     color: white;
 }
 
-#favorites-slogan {
-    font-size:32px;
-}
+/*Upload Page Css*/
 
 #upload-body {
     color:#fff;
@@ -157,7 +177,7 @@ nav {
 }
 
 #upload-slogan {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #video {
@@ -184,6 +204,14 @@ margin-bottom: 5px;
 font-family: "Roboto Condensed", sans-serif;
 }
 
+#analyze {
+    color: black;
+    border: solid 2px black;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
 #selfieImg {
     width: 480; 
     height: 340;
@@ -198,49 +226,6 @@ font-family: "Roboto Condensed", sans-serif;
 #mood-Gif {
     width: 200px;
     height: 200px;
-}
-
-
-
-#favorites-table {
-    font-size: 32px;
-}
-
-#favorites-gradient {
-background: #40E0D0;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
-background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
--webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-height:100%;
-}
-
-@-webkit-keyframes Gradient {
-    0% {
-      background-position: 0% 50%; }
-    50% {
-      background-position: 100% 50%; }
-    100% {
-      background-position: 0% 50%; } }
-
-#about-gradient {
-    background: #40E0D0;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
-    background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0); 
-    height:100%;
-    -webkit-clip-path: polygon(0 47%, 0% 100%, 100% 11%);
-    clip-path: polygon(0 47%, 0% 100%, 100% 11%);
-}
-#about h2 {
-    color:white;
-    
-}
-
-.container {
-    width: 50%;
-    float: right;
-    text-align: center;
-    position: relative;
 }
 
 #results {
@@ -264,14 +249,95 @@ p, #imageDiv {
     font-size: 25px;
 }
 
-#analyze {
-    color: black;
-    border: solid 2px black;
-    padding: 5px;
-    margin-right: 10px;
-    font-size: 18px;
+#genre-select {
+    padding-left: 15%;
 }
 
+#genre {
+    background-color: #000;
+    width: 150%;
+}
+
+#genreLabel {
+    font-size: 16px;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: white !important;
+     background-color: black !important;
+     font-family: 'Roboto Condensed', sans-serif;
+ }
+
+/*Favorites Page Css */
+
+#favorites-slogan {
+    font-size:32px;
+}
+#favorites-table {
+    font-size: 32px;
+}
+
+#favorites-gradient {
+background: #40E0D0;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
+background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
+-webkit-clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+height:100%;
+}
+
+@-webkit-keyframes Gradient {
+    0% {
+      background-position: 0% 50%; }
+    50% {
+      background-position: 100% 50%; }
+    100% {
+      background-position: 0% 50%; } 
+}
+
+
+.trash-btn {
+        background-color:black;
+       border-radius: 8px;
+        display:inline-block;
+        margin-right:5px;
+        margin-left: 2px;
+}
+    
+.playlist {
+        margin-bottom: 5px;
+}
+
+
+#favoritegif{
+    width:100px;
+    height:85px;
+    margin-right: 5px;
+}
+
+/*About Page Css */
+
+#about-gradient {
+    background: #40E0D0;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #FF0080, #FF8C00, #40E0D0);  
+    background: linear-gradient(to left, #FF0080, #FF8C00, #40E0D0); 
+    height:100%;
+    -webkit-clip-path: polygon(0 47%, 0% 100%, 100% 11%);
+    clip-path: polygon(0 47%, 0% 100%, 100% 11%);
+}
+#about h2 {
+    color:white;
+    
+}
+
+.container {
+    width: 50%;
+    float: right;
+    text-align: center;
+    position: relative;
+}
+
+/*Modal Css*/
 #modal1 {
     width:500px;
     height:700px;
@@ -353,48 +419,28 @@ p, #imageDiv {
     bottom: 20px;
 }
 
-.dropdown-content li > a, .dropdown-content li > span {
-   color: white !important;
-    background-color: black !important;
-    font-family: 'Roboto Condensed', sans-serif;
+
+
+#genre-select input {
+    color: #fff;
 }
 
-#genre {
-    background-color: #000;
-    width: 150%;
+#modal, #modal2, #modal3, input {
+    color:#000;
 }
-
-input {
-    color:white;
+#modal2, #modal2, #modal3, h3 {
+    color:#000;
 }
-
 
 #password, #email {
     color:#000;
 }
 
-#genre-select {
-    padding-left: 15%;
-}
-
-#genreLabel {
-    font-size: 16px;
-}
-
-#favoritegif{
-    width:100px;
-    height:85px;
-    margin-right: 5px;
-}
 /*In progress media queries for responsiveness*/
 @media screen and (max-width: 980px) {
 
     .container {
        width: 50%;
-   }
-   #myCanvas {
-       width: 500px;
-       height: 500px;
    }
 }
    
@@ -404,10 +450,14 @@ input {
         width: 100%;
         float: none;
     }
-    #myCanvas {
+    #canvas {
         width: 300px;
         height: 300px;
         padding-left: 0;
+    }
+    #preview {
+        width: 300px;
+        height:300px;
     }
 }
    
@@ -416,8 +466,27 @@ input {
         width: 100%;
         float: none;
     }
-    #myCanvas {
-        width: 100px;
-        height: 100px;
+    #genre {
+        align:center;
     }
+    #results {
+        float:right;
+        clear: both;
+    }
+    #upload-space {
+        float:left;
+    }
+    #upload-text {
+        padding-right: 25px;
+    }
+    #analyze{
+        float:left;
+        font-size: 14;
+    }
+
+    @media all and (min-width: 500px) {
+        .wrapper {
+          display: flex;
+        }
+      }
    }
