@@ -4,6 +4,7 @@ $("#startBtn").on('click', startWebcam );
 $("#snapBtn").on('click', snapshot );
 $("#analyze").on('click', processImage );
 $( document ).on('change','#imageFile' , previewFile );
+$("#preview").slideUp();
  //--------------------
  // GET USER MEDIA CODE
  //--------------------
