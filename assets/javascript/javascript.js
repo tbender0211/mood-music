@@ -78,7 +78,7 @@ $(document).ready(function(){
      $("#AccountCreate").on("click", function(event){
          event.preventDefault();
          let password = $("#passwordNew").val().trim();
-         let NewEmail = $("#email").val().trim();
+         let NewEmail = $("#NewEmail").val().trim();
          let auth = firebase.auth();
          // Sign in
          const promise = auth.createUserWithEmailAndPassword(NewEmail, password);
@@ -97,7 +97,7 @@ $(document).ready(function(){
          let username = $("#NewUsername").val().trim();
          let name = $("#first_name").val().trim();
          let lastname = $("#last_name").val().trim();
-         let email = $("#email").val().trim();
+         let email = $("#NewEmail").val().trim();
          let uid = firebase.auth().currentUser.uid;
          database.ref('users/' + uid).set({
              username: username,
